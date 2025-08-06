@@ -19,14 +19,22 @@ export const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+
       setIsScrolled(currentScrollY > 10);
-      setIsVisible(currentScrollY < lastScrollY);
+
+      if (currentScrollY <= 10) {
+        setIsVisible(true); // toujours visible tout en haut
+      } else {
+        setIsVisible(currentScrollY < lastScrollY); // logique normale
+      }
+
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
 
   return (
       <nav

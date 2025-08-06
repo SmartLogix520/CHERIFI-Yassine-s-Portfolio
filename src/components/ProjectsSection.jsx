@@ -34,8 +34,6 @@ const projects = [
         "Retail inventory system with real-time dashboards, supplier and sales tracking. Developed locally using lightweight stack.",
     image: "/projects/project1.png",
     tags: ["React", "Node.js", "SQLite3", "Docker"],
-    demoUrl: "#",
-    githubUrl: "#",
   },
   {
     id: 5,

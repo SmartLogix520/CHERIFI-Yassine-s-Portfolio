@@ -29,18 +29,21 @@ export const ThemeToggle = () => {
   };
 
   return (
-    <button
-      onClick={toggleTheme}
-      className={cn(
-        "fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300",
-        "focus:outlin-hidden"
-      )}
-    >
-      {isDarkMode ? (
-        <Sun className="h-6 w-6 text-yellow-300" />
-      ) : (
-        <Moon className="h-6 w-6 text-blue-900" />
-      )}
-    </button>
+      <button
+          aria-label="Toggle theme"
+          title="Toggle dark/light mode"
+          onClick={toggleTheme}
+          className={cn(
+              "fixed z-50 p-2 rounded-full transition-colors duration-300 bg-background dark:bg-muted border border-border shadow-md",
+              "right-4 sm:right-5",      // Right spacing mobile/desktop
+              "top-auto bottom-4 sm:top-5 sm:bottom-auto" // Bottom on mobile, top on desktop
+          )}
+      >
+        {isDarkMode ? (
+            <Sun className="h-6 w-6 text-yellow-300" />
+        ) : (
+            <Moon className="h-6 w-6 text-blue-900" />
+        )}
+      </button>
   );
 };

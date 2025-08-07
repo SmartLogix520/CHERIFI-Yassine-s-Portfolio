@@ -1,4 +1,4 @@
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 const projects = [
   {
@@ -17,6 +17,7 @@ const projects = [
     image: "/projects/Unicom.png",
     tags: ["React", "Node.js", "MongoDB", "Socket.IO"],
     githubUrl: "https://github.com/SmartLogix520/uniCom",
+    status: "Delivered",
   },
   {
     id: 3,
@@ -26,14 +27,17 @@ const projects = [
     image: "/projects/Restaurant.png",
     tags: ["Java", "Spring Boot", "React", "Docker"],
     githubUrl: "https://github.com/SmartLogix520/Restaurant-POS-Self-Service-Kiosk",
+    status: "Delivered",
   },
   {
     id: 4,
     title: "Inventory Management Software",
     description:
         "Retail inventory system with real-time dashboards, supplier and sales tracking. Developed locally using lightweight stack.",
-    image: "/projects/project1.png",
+    image: "/projects/DITGS.png",
     tags: ["React", "Node.js", "SQLite3", "Docker"],
+    status: "Delivered in",
+    remaining: "2 weeks"
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ const projects = [
     image: "/projects/uptown.png",
     tags: ["React", "Java", "Spring Boot", "PostgreSQL"],
     githubUrl: "https://github.com/SmartLogix520/Real-Estate-Agency-Website",
+    status: "Delivered",
   },
   {
     id: 6,
@@ -52,6 +57,8 @@ const projects = [
     image: "/projects/OC-Travel.png",
     tags: ["React", "Java", "Spring Boot", "PostgreSQL"],
     githubUrl: "https://github.com/SmartLogix520/Administrative-Services-Portal",
+    status: "Delivered in",
+    remaining: "4 weeks"
   },
 ];
 
@@ -119,8 +126,24 @@ export const ProjectsSection = () => {
                       ))}
                     </div>
 
-                    <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">
+                    <h3 className="text-xl font-semibold mb-1 text-center">
+                      {project.title}
+                    </h3>
+
+                    {project.status === "Delivered in" && (
+                        <div className="flex items-center justify-center gap-2 text-yellow-500 text-lg font-semibold mb-2">
+                          <Clock size={20} />
+                          <span>{project.status}</span>
+                          <span>{project.remaining}</span>
+                        </div>
+                    )}
+                    {project.status === "Delivered" && (
+                        <div className="flex items-center justify-center gap-2 text-green-500 text-lg font-semibold mb-2">
+                          <span>{project.status}</span>
+                        </div>
+                    )}
+
+                    <p className="text-muted-foreground text-sm mb-4 text-center">
                       {project.description}
                     </p>
 
